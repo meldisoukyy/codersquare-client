@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+.container {
+  width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 15px;
+}
+
+.wrap-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.username {
+  max-width: 150px;
+}
+
+.main {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main .login-logo {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px -2px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  top: 50px;
+}
+
+.main .login-logo > .logo {
+  height: 50px;
+  width: 50px;
+  border: 10px #9d4124 solid;
+  border-radius: 5px;
+}
+
+.main .login {
+  padding: 50px 30px 30px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.main .login-title {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.main .login-title > .title {
+  font-size: 40px;
+  color: #9d4124;
+}
+
+.main .login-title .logo {
+  height: 46px;
+}
+
+.main .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.main .login-form > input {
+  height: 50px;
+  border: 2px #C6522E solid;
+  border-radius: 5px;
+  opacity: 0.4;
+}
+
+.main .login-form > input::placeholder {
+  font-size: 20px;
+}
+
+.main .login-form > input:focus-visible {
+  opacity: 1;
+}
+
+.main .login-form > button {
+  margin-top: 10px;
+  height: 50px;
+  background-color: #C6522E;
+  border: none;
+  border-radius: 25px;
+  color: #eee;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=login.css.map */

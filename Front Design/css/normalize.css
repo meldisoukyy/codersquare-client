@@ -347,3 +347,8 @@ template {
 [hidden] {
   display: none;
 }
+
+/* Custom Configuratoins */
+input:focus-visible {
+  outline: none;
+}
