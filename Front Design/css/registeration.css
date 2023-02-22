@@ -29,7 +29,7 @@
   flex-direction: column;
 }
 
-.main .login-logo {
+.main .main-logo {
   width: 100px;
   height: 100px;
   background-color: white;
@@ -43,14 +43,15 @@
   top: 50px;
 }
 
-.main .login-logo > .logo {
+.main .main-logo > .logo {
   height: 50px;
   width: 50px;
   border: 10px #9d4124 solid;
   border-radius: 5px;
 }
 
-.main .login {
+.main .reg {
+  width: 620px;
   padding: 50px 30px 30px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -60,44 +61,45 @@
   gap: 20px;
 }
 
-.main .login-title {
+.main .reg-title {
   display: flex;
   gap: 7px;
   align-items: center;
 }
 
-.main .login-title > .title {
+.main .reg-title > .title {
   font-size: 40px;
   color: #9d4124;
 }
 
-.main .login-title .logo {
+.main .reg-title .logo {
   height: 46px;
 }
 
-.main .login-form {
+.main .reg-form {
+  margin: 0px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
 }
 
-.main .login-form > input {
+.main .reg-form input {
   height: 50px;
   border: 2px #C6522E solid;
   border-radius: 5px;
   opacity: 0.4;
 }
 
-.main .login-form > input::placeholder {
+.main .reg-form input::placeholder {
   font-size: 20px;
 }
 
-.main .login-form > input:focus-visible {
+.main .reg-form input:focus-visible {
   opacity: 1;
 }
 
-.main .login-form > button {
+.main .reg-form > button {
   margin-top: 10px;
   height: 50px;
   background-color: #C6522E;
@@ -108,4 +110,26 @@
   font-weight: bold;
 }
 
-/*# sourceMappingURL=login.css.map */
+.main .reg-form .name {
+  display: flex;
+}
+
+.main .reg-form .name > input {
+  width: 50%;
+}
+
+.main .reg-form .name > input:first-child {
+  margin-right: 5px;
+}
+
+.main .reg-route {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.main .reg-route > .route {
+  color: #9d4124;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=registeration.css.map */

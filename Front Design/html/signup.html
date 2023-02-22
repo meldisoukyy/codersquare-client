@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codersquare - Login</title>
+  <title>Codersquare - Signup</title>
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/registeration.css">
-  <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
@@ -20,19 +19,26 @@
 
     <div class="reg">
       <div class="reg-title">
-        <div class="title">Welcome back to</div>
+        <div class="title">Welcome to</div>
         <div><img class="logo" src="../images/logo.svg" alt=""></div>
       </div>
 
       <form action="" class="reg-form">
-        <input class="email" type="email" name="email" placeholder="Email or username">
+        <div class="name">
+          <input class="text" type="text" name="fname" placeholder="Firat Name">
+          <input class="text" type="text" name="lname" placeholder="Last Name">
+        </div>
+        <input class="text" type="text" name="username" placeholder="Username">
+        <input class="text" type="email" name="email" placeholder="Email">
         <input class="password" type="password" name="password" placeholder="Password">
-        <button class="submit" type="submit">Login</button>
+        <input class="password" type="password" name="confirm-password" placeholder="Confirm password">
+        <button class="submit" type="submit">Sign Up</button>
       </form>
 
+
       <div class="reg-route">
-        Don't have an account?
-        <a class="route">Sign up</a>
+        Have an account already?
+        <a class="route">Login</a>
       </div>
     </div>
   </div>
