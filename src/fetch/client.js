@@ -7,18 +7,26 @@ const AUTH = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5MDA5YjM0LT
 
 export const queryClient = new QueryClient();
 
-async function fetchData(endpoint) {
+async function fetchData(endpoint, request) {
   const { url, method } = endpoint;
+  const requestBody = request? JSON.stringify(request): undefined;
 
   const response = await fetch(`${API_HOST}${url}`, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
       'Authorization': AUTH
-    }
+    },
+    body: requestBody
   })
 
   return await response.json();
 }
 
+// USERS
+export const signup = async (username, email, firstName, lastName, password) => await fetchData(ENDPOINTS.signup,
+  {username, email, firstName, lastName, password}
+)
+
+// POSTS
 export const getPosts = () => fetchData(ENDPOINTS.listPosts)
