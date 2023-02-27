@@ -4,7 +4,7 @@ import {QueryClientProvider } from 'react-query';
 
 import './index.css';
 import App from './App';
-import {queryClient} from './fetch/client';
+import {queryClient} from './fetch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
