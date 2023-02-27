@@ -7,7 +7,7 @@ const AUTH = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5MDA5YjM0LT
 
 export const queryClient = new QueryClient();
 
-export async function callEndPoint(endpoint, request) {
+async function callEndPoint(endpoint, request) {
   const { url, method } = endpoint;
   const requestBody = request? JSON.stringify(request): undefined;
 
@@ -20,8 +20,16 @@ export async function callEndPoint(endpoint, request) {
     body: requestBody
   })
 
-  return await response.json();
+  const status = response.status;
+
+  const isJson = response.headers.get('content-type')?.includes('application/json');
+  const jsonResponse = isJson? await response.json() : {}
+
+  return {status: status, response: jsonResponse};
 }
+
+// USERS
+export const signup = (user) => callEndPoint(ENDPOINTS.signup, user)
 
 // POSTS
 export const getPosts = () => callEndPoint(ENDPOINTS.listPosts)
