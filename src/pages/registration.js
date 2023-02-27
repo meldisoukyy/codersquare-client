@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { ENDPOINTS } from '../fetch/endpoints';
-import { fetchData } from '../fetch/client'
+import { signup as signupRequest } from '../fetch'
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -20,8 +19,11 @@ const Signup = () => {
 
   const signup = async (e) => {
     e.preventDefault();
-    const response = await fetchData(ENDPOINTS.signup, user);
-    console.log(response);
+    const { status, response } = await signupRequest(user);
+    if (status === 200)
+      console.log('Success')
+    else
+      console.log(status, ':', response.msg)
   }
 
   return (
