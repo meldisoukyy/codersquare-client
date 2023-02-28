@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { getPosts, addPost as addPostRequest } from '../fetch/';
+import { getPosts, addPost as addPostRequest, deletePost} from '../fetch/';
 import { useTitle } from '../hooks/title';
 
 export const ListPosts = () => {
@@ -23,6 +23,14 @@ export const ListPosts = () => {
     const { response, status } = await addPostRequest(post);
     if (status === 200)
       window.location.reload(true)
+    else
+      console.log(status + ' ' + response.msg);
+  }
+
+  const handleDeletePost = async (postId) => {
+    const {response, status} = await deletePost(postId);
+    if (status === 200)
+      window.location.reload(true);
     else
       console.log(status + ' ' + response.msg);
   }
@@ -51,10 +59,15 @@ export const ListPosts = () => {
       <ul>
         {
           !!response?.posts && response.posts.map((post, i) => {
-            return <li key={i}><Link to={`/post/${post.id}`}>{JSON.stringify(post.title)}</Link></li>
+            return <li key={i}>
+              <Link to={`/post/${post.id}`}>
+                {JSON.stringify(post.title)}
+              </Link>
+              <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+            </li>
           })
         }
-    </ul>
+      </ul>
     </div >
   );
 }
