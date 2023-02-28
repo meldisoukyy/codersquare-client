@@ -40,7 +40,7 @@ export const deletePost = (id) => callEndPoint(handleParam(id, ENDPOINTS.deleteP
 
 // Comments
 export const getComments = (postId) => callEndPoint(handleParam(postId, ENDPOINTS.getComments));
-export const addComment = () => callEndPoint(ENDPOINTS.addComment);
+export const addComment = (comment) => callEndPoint(ENDPOINTS.addComment, comment);
 export const deleteComment = (id) => callEndPoint(handleParam(id, ENDPOINTS.deleteComment));
 
 // LIKES
