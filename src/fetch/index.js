@@ -34,3 +34,4 @@ export const logout = () => localStorage.removeItem('JWT');
 
 // POSTS
 export const getPosts = () => callEndPoint(ENDPOINTS.listPosts)
+export const addPost = (post) => callEndPoint(ENDPOINTS.addPost, post)
