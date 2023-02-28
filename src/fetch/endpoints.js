@@ -7,7 +7,18 @@ export const ENDPOINTS = {
   // POSTS
   listPosts: { url: '/posts', method: 'GET' },
   addPost: { url: '/posts', method: 'POST' },
-  viewPost: { url: '/posts/:id', method: 'GET' }
+  viewPost: { url: '/posts/:id', method: 'GET' },
+  deletePost: { url: '/posts/:id', method: 'DELETE' },
+
+  // COMMENTS
+  addComment: { url: '/comments', method: 'POST' },
+  getComments: { url: '/comments/:postId', method: 'GET' },
+  deleteComment: { url: '/comments/:id', method: 'DELETE' },
+
+  // LIKES
+  addLike: {url: '/likes', method: 'POST'},
+  getLikes: {url: '/likes/:postId', method: 'GET'},
+  deleteLike: {url: '/likes/:postId', method: 'DELETE'}
 }
 
 export const handleParam = (param, endpoint) => {
