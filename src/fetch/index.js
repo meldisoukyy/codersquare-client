@@ -37,3 +37,13 @@ export const getPosts = () => callEndPoint(ENDPOINTS.listPosts);
 export const addPost = (post) => callEndPoint(ENDPOINTS.addPost, post);
 export const viewPost = (id) => callEndPoint(handleParam(id, ENDPOINTS.viewPost));
 export const deletePost = (id) => callEndPoint(handleParam(id, ENDPOINTS.deletePost));
+
+// Comments
+export const getComments = (postId) => callEndPoint(handleParam(postId, ENDPOINTS.getComments));
+export const addComment = () => callEndPoint(ENDPOINTS.addComment);
+export const deleteComment = (id) => callEndPoint(handleParam(id, ENDPOINTS.deleteComment));
+
+// LIKES
+export const getLikes = (postId) => callEndPoint(handleParam(postId, ENDPOINTS.getLikes));
+export const addLike = () => callEndPoint(ENDPOINTS.addLike);
+export const deleteLike = (id) => callEndPoint(handleParam(id, ENDPOINTS.deleteLike));
