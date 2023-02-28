@@ -13,7 +13,7 @@ export const Login = () => {
   });
   const navigate = useNavigate();
 
-  const changeUser = (e, id) => {
+  const updateUser = (e, id) => {
     const newUser = { ...user };
     newUser[id] = e.target.value;
     setUser(newUser);
@@ -37,7 +37,7 @@ export const Login = () => {
         placeholder={'Email or Username'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'emailOrUsername')}
+        onChange={e => updateUser(e, 'emailOrUsername')}
       ></input>
 
       <input
@@ -45,7 +45,7 @@ export const Login = () => {
         placeholder={'password'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'password')}
+        onChange={e => updateUser(e, 'password')}
       ></input>
 
       <button type='submit'>Submit</button>

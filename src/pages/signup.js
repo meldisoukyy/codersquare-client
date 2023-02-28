@@ -14,7 +14,7 @@ export const Signup = () => {
     password: null
   })
 
-  const changeUser = (e, id) => {
+  const updateUser = (e, id) => {
     const newUser = { ...user }
     newUser[id] = e.target.value;
     setUser(newUser)
@@ -36,7 +36,7 @@ export const Signup = () => {
         placeholder={'username'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'username')}
+        onChange={e => updateUser(e, 'username')}
       ></input>
 
       <input
@@ -44,7 +44,7 @@ export const Signup = () => {
         placeholder={'email'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'email')}
+        onChange={e => updateUser(e, 'email')}
       ></input>
 
       <input
@@ -52,7 +52,7 @@ export const Signup = () => {
         placeholder={'firstName'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'firstName')}
+        onChange={e => updateUser(e, 'firstName')}
       ></input>
 
       <input
@@ -60,7 +60,7 @@ export const Signup = () => {
         placeholder={'lastName'}
         type={'text'}
         required
-        onChange={e => changeUser(e, 'lastName')}
+        onChange={e => updateUser(e, 'lastName')}
       ></input>
 
       <input
@@ -68,7 +68,7 @@ export const Signup = () => {
         placeholder={'password'}
         // type={'password'}
         required
-        onChange={e => changeUser(e, 'password')}
+        onChange={e => updateUser(e, 'password')}
       ></input>
 
       <button type='submit'>Submit</button>
