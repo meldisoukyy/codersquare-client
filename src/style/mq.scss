@@ -1,0 +1,29 @@
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@function get-breakpoint($size) {
+  @return map-get($breakpoints, $size);
+}
+
+@mixin mobile {
+  @media only screen and (min-width: #{get-breakpoint(xs)}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{get-breakpoint(md)}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{get-breakpoint(xl)}) {
+    @content;
+  }
+}
