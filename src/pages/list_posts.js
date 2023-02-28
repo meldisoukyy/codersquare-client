@@ -2,8 +2,11 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 import { getPosts } from '../fetch/';
+import { useTitle } from '../hooks/title';
 
 export const ListPosts = () => {
+  useTitle('Home');
+
   const { data, error, isLoading } = useQuery(['listPosts'], getPosts);
   const { response } = data? data: {response:null};
 
@@ -12,6 +15,7 @@ export const ListPosts = () => {
 
   return (
     <div>
+      <div>POSTS:</div>
       <ul>
         {
           !!response?.posts && response.posts.map((post, i) => {

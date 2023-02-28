@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { login as loginRequest } from '../fetch'
+import { useTitle } from '../hooks/title';
 
 export const Login = () => {
+  useTitle('Login');
+
   const [user, setUser] = useState({
     emailOrUsername: null,
     password: null

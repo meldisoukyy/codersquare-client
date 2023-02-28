@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { signup as signupRequest} from '../fetch'
 
-const Signup = () => {
+import { signup as signupRequest} from '../fetch'
+import { useTitle } from '../hooks/title';
+
+export const Signup = () => {
+  useTitle('Signup');
+
   const [user, setUser] = useState({
     username: null,
     email: null,
