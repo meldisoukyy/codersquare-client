@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { login as loginRequest } from '../fetch'
 export let AUTH = null;
 
-const Login = () => {
+export const Login = () => {
   const [user, setUser] = useState({
     emailOrUsername: null,
     password: null
-  })
+  });
+  const navigate = useNavigate();
 
   const changeUser = (e, id) => {
     const newUser = { ...user };
@@ -20,6 +22,7 @@ const Login = () => {
     const { status, response } = await loginRequest(user);
     if (status === 200) {
       AUTH = `Bearer ${response.token}`;
+      navigate('/home');
     }
     else
       console.log(status, ':', response.msg)
