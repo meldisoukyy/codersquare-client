@@ -1,7 +1,6 @@
 import { QueryClient } from "react-query";
 
 import { ENDPOINTS } from "./endpoints";
-import { AUTH } from "../pages/registration"
 
 const API_HOST = 'http://localhost:3001'
 
@@ -15,7 +14,7 @@ async function callEndPoint(endpoint, request) {
     method: method,
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': AUTH
+      'Authorization': localStorage.getItem('JWT')
     },
     body: requestBody
   })
@@ -31,6 +30,7 @@ async function callEndPoint(endpoint, request) {
 // USERS
 export const signup = (user) => callEndPoint(ENDPOINTS.signup, user);
 export const login  = (user) => callEndPoint(ENDPOINTS.login, user);
+export const logout = () => localStorage.removeItem('JWT');
 
 // POSTS
 export const getPosts = () => callEndPoint(ENDPOINTS.listPosts)

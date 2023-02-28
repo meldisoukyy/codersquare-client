@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { login as loginRequest } from '../fetch'
-export let AUTH = null;
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -21,7 +20,7 @@ export const Login = () => {
     e.preventDefault();
     const { status, response } = await loginRequest(user);
     if (status === 200) {
-      AUTH = `Bearer ${response.token}`;
+      localStorage.setItem('JWT',`Bearer ${response.token}`);
       navigate('/home');
     }
     else
