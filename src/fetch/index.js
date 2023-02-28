@@ -1,6 +1,6 @@
 import { QueryClient } from "react-query";
 
-import { ENDPOINTS } from "./endpoints";
+import { ENDPOINTS, handleParam } from "./endpoints";
 
 const API_HOST = 'http://localhost:3001'
 
@@ -33,5 +33,6 @@ export const login  = (user) => callEndPoint(ENDPOINTS.login, user);
 export const logout = () => localStorage.removeItem('JWT');
 
 // POSTS
-export const getPosts = () => callEndPoint(ENDPOINTS.listPosts)
-export const addPost = (post) => callEndPoint(ENDPOINTS.addPost, post)
+export const getPosts = () => callEndPoint(ENDPOINTS.listPosts);
+export const addPost = (post) => callEndPoint(ENDPOINTS.addPost, post);
+export const viewPost = (id) => callEndPoint(handleParam(id, ENDPOINTS.viewPost));
