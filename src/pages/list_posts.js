@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 import { getPosts, addPost as addPostRequest } from '../fetch/';
 import { useTitle } from '../hooks/title';
@@ -50,10 +51,10 @@ export const ListPosts = () => {
       <ul>
         {
           !!response?.posts && response.posts.map((post, i) => {
-            return <li key={i}>{JSON.stringify(post.title)}</li>
+            return <li key={i}><Link to={`/post/${post.id}`}>{JSON.stringify(post.title)}</Link></li>
           })
         }
-      </ul>
-    </div>
+    </ul>
+    </div >
   );
 }
