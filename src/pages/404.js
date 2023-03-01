@@ -9,7 +9,7 @@ export const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='container'>
+    <div className='not-found-main-div'>
       <img
         className='not-found'
         src={ERROR_SVG}
