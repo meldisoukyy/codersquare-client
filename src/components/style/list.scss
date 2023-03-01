@@ -1,0 +1,15 @@
+@use '../../style/colors.scss';
+
+.list {
+  list-style: none;
+}
+
+.list-item {
+  padding: 5px;
+  transition: background-color .3s;
+}
+
+.list-item:hover {
+  background-color: colors.$white-hover;
+  border-radius: 5px;
+}
