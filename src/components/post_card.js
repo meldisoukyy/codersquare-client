@@ -11,11 +11,13 @@ export const PostCard = ({ post }) => {
   const { isLiked, likesCount, refetch } = useLikesInfo(post.id);
   const { commentsCount } = useCommentInfo(post.id);
 
-  const viewPost = useCallback(async () => {
+  const viewPost = useCallback(async (e) => {
+    e.stopPropagation();
     navigator('/post/'+post.id);
   }, [navigator, post.id])
 
-  const toggleLike = useCallback(async () => {
+  const toggleLike = useCallback(async (e) => {
+    e.stopPropagation();
     if (!!isLiked) {
       await deleteLikeRequest(post.id);
     } else {
