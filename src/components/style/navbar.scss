@@ -1,0 +1,61 @@
+@use '../../style/colors.scss';
+@use '../../style/shared.scss';
+
+.navbar {
+  border-top: 10px colors.$main-color solid;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo>img {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.options {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.option {
+  text-align: center;
+  padding: 7px 0px;
+  padding: auto 0px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.new-post {
+  background-color: colors.$main-color;
+  padding: 7px;
+  border: 2px colors.$main-color solid;
+  border-radius: 10px;
+  transition: 0.3s;
+  color: white;
+  font-weight: bold;
+  opacity: 1;
+}
+
+.new-post:hover {
+  background-color: white;
+  border: 2px colors.$main-color solid;
+  border-radius: 10px;
+  color: colors.$main-color;
+}
+
+.option:not(.new-post):hover {
+  color: colors.$main-color;
+
+  opacity: 1;
+}
