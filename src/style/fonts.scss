@@ -1,4 +1,5 @@
 @use './mq.scss';
+@use './colors.scss';
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap");
 
 * {
@@ -14,4 +15,24 @@
   @include mq.desktop {
     font-size: medium;
   }
+}
+
+.header-text {
+  font-size: xx-large;
+  font-weight: bold;
+  @include mq.mobile {
+    font-size: x-large;
+  }
+}
+
+.main-text {
+  font-size: x-large;
+  font-weight: bold;
+  @include mq.mobile {
+    font-size: large;
+  }
+}
+
+.sub-text {
+  color: colors.$gray-color;
 }

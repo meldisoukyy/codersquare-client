@@ -22,17 +22,6 @@
   }
 }
 
-.main-text {
-  font-size: xx-large;
-  font-weight: bold;
-  @include mq.mobile {
-    font-size: x-large;
-  }
-}
-
-.sub-text {
-  color: colors.$gray-color;
-}
 
 .go-back {
   margin: 10px 0px;
