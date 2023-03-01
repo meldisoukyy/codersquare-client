@@ -11,13 +11,13 @@ $breakpoints: (
 }
 
 @mixin mobile {
-  @media only screen and (min-width: #{get-breakpoint(xs)}) {
+  @media only screen and (min-width: #{get-breakpoint(xs)}) and (max-width: calc(#{get-breakpoint(md)} - 1px)) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media only screen and (min-width: #{get-breakpoint(md)}) {
+  @media only screen and (min-width: #{get-breakpoint(md)}) and (max-width: calc(#{get-breakpoint(xl)} - 1px)){
     @content;
   }
 }
