@@ -4,11 +4,16 @@
 
 .card {
   display: grid;
-  grid-template-columns: max-content auto;
-  width: fit-content;
+  grid-template-columns: 25px auto;
+  width: 100%;
   column-gap: 10px;
   align-items: center;
   cursor: pointer;
+}
+
+.card:hover,
+.username {
+  color: colors.$main-color;
 }
 
 .like-button {
@@ -18,6 +23,12 @@
 
 .like-icon {
   font-size: larger;
+  transition: font-size .5s;
+}
+
+.like-button:hover
+.like-icon {
+  font-size: x-large;
 }
 
 .title {
