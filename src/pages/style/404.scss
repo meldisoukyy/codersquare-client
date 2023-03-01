@@ -1,0 +1,52 @@
+@use '../../style/mq.scss';
+@use '../../style/colors.scss';
+@use '../../style/fonts.scss';
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found {
+  @include mq.mobile {
+    width: 80%;
+  }
+  @include mq.tablet {
+    width: 80%;
+  }
+  @include mq.desktop {
+    width: 1000px;
+  }
+}
+
+.main-text {
+  font-size: xx-large;
+  font-weight: bold;
+  @include mq.mobile {
+    font-size: x-large;
+  }
+}
+
+.sub-text {
+  color: colors.$gray-color;
+}
+
+.go-back {
+  margin: 10px 0px;
+  background-color: transparent;
+  border: 2px solid colors.$main-color;
+  border-radius: 10px;
+  padding: 10px;
+  color: colors.$light-color;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.go-back:hover {
+  background-color: colors.$light-color;
+  border: 2px solid colors.$light-color;
+  color: white;
+}
