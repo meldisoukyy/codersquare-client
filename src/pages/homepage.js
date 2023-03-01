@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { getPosts, addPost as addPostRequest, deletePost} from '../fetch/';
+import { getPosts, addPost as addPostRequest, deletePost} from '../fetch';
 import { useTitle } from '../hooks/title';
 
-export const ListPosts = () => {
+export const Homepage = () => {
   useTitle('Home');
 
   const [post, setPost] = useState({
     title: null,
     body: null
   });
-  const { data, error, isLoading } = useQuery(['listPosts'], getPosts);
+  const  {data} = useQuery(['listPosts'], getPosts);
   const { response } = data ? data : { response: null };
-
-  if (isLoading) return <h1>Loading... </h1>
-  if (error) return <h1>There is an error.</h1>
 
   const addPost = async (e) => {
     e.preventDefault();
