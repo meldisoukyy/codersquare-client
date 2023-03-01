@@ -45,5 +45,5 @@ export const deleteComment = (id) => callEndPoint(handleParam(id, ENDPOINTS.dele
 
 // LIKES
 export const getLikes = (postId) => callEndPoint(handleParam(postId, ENDPOINTS.getLikes));
-export const addLike = () => callEndPoint(ENDPOINTS.addLike);
+export const addLike = (id) => callEndPoint(ENDPOINTS.addLike, id);
 export const deleteLike = (id) => callEndPoint(handleParam(id, ENDPOINTS.deleteLike));
