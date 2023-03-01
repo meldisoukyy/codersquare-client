@@ -1,0 +1,23 @@
+@use '../../style/colors.scss';
+
+.comment {
+  padding-left: 5px;
+  border-left: 2px solid colors.$light-color;
+}
+
+.anchor {
+  padding-left: 2px;
+  color: colors.$main-color;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  text-decoration: underline;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: colors.$red-color;
+  cursor: pointer;
+}
