@@ -1,32 +1,15 @@
-@use '../../style/shared.scss';
-@use '../../style/mq.scss';
-@use '../../style/colors.scss';
+@use "../../style/shared.scss";
+@use "../../style/mq.scss";
+@use "../../style/colors.scss";
 
 .card {
   display: grid;
-  grid-template-columns: max-content auto 11fr;
+  grid-template-columns: max-content auto;
+  width: fit-content;
   column-gap: 10px;
   align-items: center;
   padding: 0px 20px;
   cursor: pointer;
-  transition: background .3s;
-
-  @include mq.mobile{
-    width: 100%;
-  }
-
-  @include mq.tablet{
-    width: 100%;
-  }
-
-  @include mq.desktop{
-    width: 1200px;
-  }
-}
-
-.card:hover {
-  background-color: whitesmoke;
-  border-radius: 10px;
 }
 
 .like-button {
@@ -42,11 +25,15 @@
   font-size: larger;
 }
 
+.title:hover {
+  color: colors.$main-color;
+}
+
 .username {
   color: colors.$black-color;
 }
 
-.title:hover, .username:hover {
+.username:hover {
   color: colors.$main-color;
 }
 
@@ -57,29 +44,8 @@
   gap: 5px;
   align-items: center;
   color: colors.$gray-color;
-
-  @include mq.mobile{
-    gap: 0px;
-    justify-content: space-around;
-  }
 }
 
 .spliter {
   font-size: smaller;
-}
-
-.body {
-  line-height: 1.2em;
-  max-height: 3.6em;
-  grid-column: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.disable {
-  display: none;
-}
-
-.on-click{
-  background-color: colors.$white-hover;
 }
