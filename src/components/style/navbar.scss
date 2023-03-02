@@ -1,5 +1,6 @@
 @use '../../style/colors.scss';
 @use '../../style/shared.scss';
+@use '../../style/mq.scss';
 
 .navbar {
   border-top: 10px colors.$main-color solid;
@@ -14,6 +15,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include mq.mobile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .logo>img {
@@ -22,6 +28,7 @@
 }
 
 .options {
+  padding-left: 0px;
   list-style: none;
   display: flex;
   gap: 15px;

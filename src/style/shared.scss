@@ -18,6 +18,10 @@
 
 .under-navbar {
   margin-top: 80px;
+
+  @include mq.mobile {
+    margin-top: 100px;
+  }
 }
 
 .wrap-text {
