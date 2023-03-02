@@ -1,25 +1,22 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { Routes, Route } from 'react-router-dom';
 
-import './App.css';
-import { getPosts } from './fetch/client';
+import { Homepage } from './pages/homepage';
+import { Signup } from './pages/signup';
+import { Login } from './pages/login'
+import { ViewPost } from './pages/view_post';
+import { NotFound } from './pages/404';
+
 
 function App() {
-  const { data, error, isLoading } = useQuery('test', getPosts);
-
-  if (isLoading) return <h1>Loading... </h1>
-  if (error) return <h1>There is an error.</h1>
-
   return (
-    <div>
-      Posts:
-      <ul>
-      {!!data?.posts && data.posts.map((post, i) => {
-        return <li key={i}>{JSON.stringify(post.title)}</li>
-      }
-      )}
-      </ul>
-    </div>
+    <Routes>
+      <Route path='/user/signup' element={<Signup></Signup>}></Route>
+      <Route path='/user/login'  element={<Login></Login>}></Route>
+      <Route path='/' element={<Homepage></Homepage>}></Route>
+      <Route path='/post/:id' element={<ViewPost></ViewPost>}></Route>
+      <Route path='*' element={<NotFound></NotFound>}></Route>
+    </Routes>
   );
 }
 
