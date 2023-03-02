@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AddComment } from './add-comment';
 import { AddPost } from './add-post';
 import { Modal } from './modal';
 import './style/navbar.scss';
 
-export const Navbar = ({ refetchPosts }) => {
+export const Navbar = ({ refetchPosts, refetchComments, postId }) => {
   const location = useLocation();
   const navigator = useNavigate();
   const [modal, setModal] = useState(false);
@@ -23,7 +24,9 @@ export const Navbar = ({ refetchPosts }) => {
           <Modal
             setModal={setModal}
             content={
-              location.pathname === '/' ? <AddPost setModal={setModal} refetch={refetchPosts}></AddPost> : 'New Comment'
+              location.pathname === '/' ?
+                <AddPost setModal={setModal} refetch={refetchPosts}></AddPost> :
+                <AddComment setModal={setModal} refetch={refetchComments} postId={postId}></AddComment>
             }
           ></Modal>
         }
