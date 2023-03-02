@@ -9,7 +9,7 @@ export const PostsList = ({ posts, refetch }) => {
         !!posts?.posts && posts.posts.map((post, i) => {
           return (
             <li key={i} className='list-item'>
-              <PostCard post={post} refetch={refetch}></PostCard>
+              <PostCard post={post} refetch={refetch} postId={post.id}></PostCard>
             </li>
           )
         })
