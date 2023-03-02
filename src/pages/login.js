@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { login as loginRequest } from '../fetch'
 import { useTitle } from '../hooks/title';
+import './style/login.scss'
 
 export const Login = () => {
   useTitle('Login');
@@ -23,32 +24,51 @@ export const Login = () => {
     e.preventDefault();
     const { status, response } = await loginRequest(user);
     if (status === 200) {
-      localStorage.setItem('JWT',`Bearer ${response.token}`);
-      navigate('/home');
+      localStorage.setItem('JWT', `Bearer ${response.token}`);
+      localStorage.setItem('CURRENT_USER', response.user.username);
+      navigate('/');
     }
     else
       console.log(status, ':', response.msg)
   }
 
   return (
-    <form onSubmit={login}>
-      <input
-        key={'emailOrUsername'}
-        placeholder={'Email or Username'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'emailOrUsername')}
-      ></input>
+    <div className="container main">
+      <div className="main-logo">
+        <div className="logo">
+        </div>
+      </div>
 
-      <input
-        key={'password'}
-        placeholder={'password'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'password')}
-      ></input>
+      <div className="reg">
+        <div className="reg-title">
+          <div className="title">Welcome back to</div>
+          <div><img className="logo" src={process.env.PUBLIC_URL+'/imgs/logo.svg'} alt=""></img></div>
+        </div>
 
-      <button type='submit'>Submit</button>
-    </form>
+        <form onSubmit={login} className="reg-form">
+          <input
+            key={'emailOrUsername'}
+            placeholder={'Email or Username'}
+            type={'text'}
+            required
+            onChange={e => updateUser(e, 'emailOrUsername')}
+          ></input>
+
+          <input
+            key={'password'}
+            placeholder={'password'}
+            type={'text'}
+            required
+            onChange={e => updateUser(e, 'password')}
+          ></input>
+          <button className="submit" type="submit">Login</button>
+        </form>
+
+        <div className="reg-route">
+          Don't have an account?
+          <button className="route" onClick={() => navigate('/user/signup')}>Sign up</button>
+        </div>
+      </div>
+    </div>
   )
 }

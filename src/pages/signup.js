@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { signup as signupRequest} from '../fetch'
+import { signup as signupRequest } from '../fetch'
 import { useTitle } from '../hooks/title';
+import './style/login.scss';
 
 export const Signup = () => {
   useTitle('Signup');
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     username: null,
@@ -23,55 +26,78 @@ export const Signup = () => {
   const signup = async (e) => {
     e.preventDefault();
     const { status, response } = await signupRequest(user);
-    if (status === 200)
-      console.log('Success')
+    if (status === 200){
+      navigate('/user/login');
+    }
     else
       console.log(status, ':', response.msg)
   }
 
   return (
-    <form onSubmit={signup}>
-      <input
-        key={'username'}
-        placeholder={'username'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'username')}
-      ></input>
+    <div className="container main">
+      <div className="main-logo">
+        <div className="logo">
+        </div>
+      </div>
 
-      <input
-        key={'email'}
-        placeholder={'email'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'email')}
-      ></input>
+      <div className="reg">
+        <div className="reg-title">
+          <div className="title">Welcome to</div>
+          <div><img className="logo" src="/imgs/logo.svg" alt=""></img></div>
+        </div>
 
-      <input
-        key={'firstName'}
-        placeholder={'firstName'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'firstName')}
-      ></input>
+        <form onSubmit={signup} className="reg-form">
+          <div className="name">
+            <input
+              key={'firstName'}
+              placeholder={'First Name'}
+              type={'text'}
+              required
+              onChange={e => updateUser(e, 'firstName')}
+            ></input>
 
-      <input
-        key={'lastName'}
-        placeholder={'lastName'}
-        type={'text'}
-        required
-        onChange={e => updateUser(e, 'lastName')}
-      ></input>
+            <input
+              key={'lastName'}
+              placeholder={'Last Name'}
+              type={'text'}
+              required
+              onChange={e => updateUser(e, 'lastName')}
+            ></input>
+          </div>
 
-      <input
-        key={'password'}
-        placeholder={'password'}
-        // type={'password'}
-        required
-        onChange={e => updateUser(e, 'password')}
-      ></input>
+          <input
+            key={'username'}
+            placeholder={'username'}
+            type={'text'}
+            required
+            onChange={e => updateUser(e, 'username')}
+          ></input>
 
-      <button type='submit'>Submit</button>
-    </form>
+          <input
+            key={'email'}
+            placeholder={'email'}
+            type={'text'}
+            required
+            onChange={e => updateUser(e, 'email')}
+          ></input>
+
+          <input
+            key={'password'}
+            placeholder={'password'}
+            // type={'password'}
+            required
+            onChange={e => updateUser(e, 'password')}
+          ></input>
+
+          <button type='submit'>Submit</button>
+
+        </form>
+
+        <div className="reg-route">
+          Have an account already?
+          <button className="route" onClick={() => navigate('/user/login')}>Login</button>
+        </div>
+      </div>
+    </div>
   );
 }
